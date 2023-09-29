@@ -51,7 +51,7 @@ class MainInterface:
 
         # Categories Info =============================================================================================
         self.is_category_filtered = False
-        self.categories = ndb.get_categories()
+        self.categories = None
         self.current_category = self.categories[0][1]
         self.category_label = tk.Label(self.main_frame)
         self.cat_label_text = f"Category: {self.current_category}"
@@ -131,6 +131,7 @@ class MainInterface:
         # End Buttons Field ===========================================================================================
 
         ndb.initialize_database()  # Initializes the database on first setup
+        self.categories = ndb.get_categories()
         self.initialize_settings()  # Initializes app configurations
         self.create_buttons()  # Displays all available function buttons
         self.sort()  # Sorts the notes immediately
