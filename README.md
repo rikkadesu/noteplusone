@@ -11,3 +11,6 @@ A simple note taking app made on my spare time.
 * Autosave - on by default.
 
 The program was mostly designed using PAGE software for Tkinter GUI and uses SQLite 3 for the database.
+
+## How to Run
+To use the program, run the main_window.py file.
