@@ -1,7 +1,7 @@
 # noteplusone
 A simple note taking app made on my spare time.
 
-##**Current Features**
+## **Current Features**
 • Create a new note.
 • Delete notes.
 • Sort your notes.
