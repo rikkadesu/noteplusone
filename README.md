@@ -9,3 +9,5 @@ A simple note taking app made on my spare time.
 * Filter notes based on their category.
 * Able to export and import your notes to a JSON file :O
 * Autosave - on by default.
+
+The program was mostly designed using PAGE software for Tkinter GUI and uses SQLite 3 for the database.
