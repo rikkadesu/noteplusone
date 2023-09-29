@@ -15,9 +15,9 @@ def initialize_database() -> None:
                 "category_name text NOT NULL" \
                 ")"
     script.execute(sql_query)
-    
-    sql_query = "INSERT INTO Categories (category_name) " \
-                "VALUES (\"None\")"
+
+    sql_query = "INSERT INTO Categories (category_id, category_name) " \
+                "VALUES (0, \"None\")"
     script.execute(sql_query)
 
     # Create Notes Table

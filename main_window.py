@@ -12,12 +12,12 @@ from settings_window import SettingsInterface
 from sort_window import SortNotesInterface
 from tooltip import ToolTip
 
-APP_VERSION = "1.0.1"
+APP_VERSION = "1.0.2"
 
 
 class MainInterface:
     def __init__(self):
-        ndb.initialize_database()  # Initializes the database on first setup
+        self.initialize_database()  # Initializes the database on first setup
 
         self.main_window = tk.Tk()
         self.main_window.geometry("515x456+569+146")
@@ -364,6 +364,11 @@ class MainInterface:
                     "autosave": 1
                 }
                 json.dump(settings_data, settings)
+
+    def initialize_database(self):
+        _ = self  # Ignore
+        if not os.path.exists("notes.db"):
+            ndb.initialize_database()
 
     def find_function_button(self, to_find: str):
         """ Finds the specified button in the buttons info list based on its name. """
