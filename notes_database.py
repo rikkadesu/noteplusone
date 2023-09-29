@@ -11,14 +11,18 @@ def initialize_database() -> None:
 
     # Create Categories Table
     sql_query = "CREATE Table IF NOT EXISTS Categories (" \
-                "category_id interger PRIMARY KEY AUTOINCREMENT NOT NULL," \
+                "category_id integer PRIMARY KEY AUTOINCREMENT NOT NULL," \
                 "category_name text NOT NULL" \
                 ")"
+    script.execute(sql_query)
+    
+    sql_query = "INSERT INTO Categories (category_name) " \
+                "VALUES (\"None\")"
     script.execute(sql_query)
 
     # Create Notes Table
     sql_query = "CREATE Table IF NOT EXISTS Notes (" \
-                "note_id interger PRIMARY KEY AUTOINCREMENT NOT NULL," \
+                "note_id integer PRIMARY KEY AUTOINCREMENT NOT NULL," \
                 "note_category integer," \
                 "note_title text NOT NULL," \
                 "note_text text," \

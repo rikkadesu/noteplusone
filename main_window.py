@@ -17,6 +17,8 @@ APP_VERSION = "1.0.1"
 
 class MainInterface:
     def __init__(self):
+        ndb.initialize_database()  # Initializes the database on first setup
+
         self.main_window = tk.Tk()
         self.main_window.geometry("515x456+569+146")
         self.main_window.minsize(515, 456)
@@ -51,7 +53,7 @@ class MainInterface:
 
         # Categories Info =============================================================================================
         self.is_category_filtered = False
-        self.categories = None
+        self.categories = ndb.get_categories()
         self.current_category = self.categories[0][1]
         self.category_label = tk.Label(self.main_frame)
         self.cat_label_text = f"Category: {self.current_category}"
@@ -130,8 +132,6 @@ class MainInterface:
         self.buttons_canvas.bind_all("<MouseWheel>", self.on_mousewheel)
         # End Buttons Field ===========================================================================================
 
-        ndb.initialize_database()  # Initializes the database on first setup
-        self.categories = ndb.get_categories()
         self.initialize_settings()  # Initializes app configurations
         self.create_buttons()  # Displays all available function buttons
         self.sort()  # Sorts the notes immediately
